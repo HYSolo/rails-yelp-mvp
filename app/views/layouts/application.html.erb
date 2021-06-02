@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <div class="navbar px-3 navbar-light" style="background-color: #e3f2fd;">
+      <%= link_to "Restaurants", restaurants_path, class: "pr-3 text-decoration-none fs-3", style: "margin-left: 92px;" %>
+      <%= link_to "Add New Restaurant", new_restaurant_path, class: "px-3 text-decoration-none btn btn-secondary", style: "margin-right: 92px;" %>
+    </div>
     <%= yield %>
   </body>
 </html>

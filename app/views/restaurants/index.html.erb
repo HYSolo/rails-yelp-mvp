@@ -1,6 +1,9 @@
-<h1>Restaurants</h1>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
-  <% end %>
-</ul>
+<div class="container mt-3">
+  <h1>Restaurants</h1>
+    <% @restaurants.each do |restaurant| %>
+      <div class="card p-3 my-3">
+        <%= link_to restaurant.name, restaurant_path(restaurant), class: "fs-4 card-title text-decoration-none text-reset" %>
+        <p><%= restaurant.category.capitalize %> | <%= restaurant.address %></p>
+      </div>
+    <% end %>
+</div>

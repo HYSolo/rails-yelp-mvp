@@ -1,7 +1,9 @@
-<%= simple_form_for @restaurant do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :category %>
-  <%= f.submit "Add new" %>
-<% end %>
+<div class="container mt-3">
+  <%= simple_form_for @restaurant, defaults: { wrapper_html: { class: 'my-3' }} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.select(:category, ["chinese", "italian", "japanese", "french", "belgian"], {include_blank: "Category"}, { :class => 'form-select my-3' }) %>
+    <%= f.submit "Add restaurant", class: "btn btn-secondary" %>
+  <% end %>
+</div>
