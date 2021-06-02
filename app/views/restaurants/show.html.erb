@@ -1,18 +1,18 @@
 <div class="container mt-3">
   <h1><%= @restaurant.name %></h1>
   <p><%= @restaurant.category.capitalize %> styled restaurant at <%= @restaurant.address %></p>
-  <% if @restaurant.reviews.length > 0 %>
+  <div class="d-flex justify-content-between align-items-center">
     <h3>Reviews</h3>
+    <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-secondary px-3 text-center" %>
+  </div>
+  <% if @restaurant.reviews.length > 0 %>
     <% @restaurant.reviews.each do |review| %>
       <div class="card p-3 my-3">
-        <p class="card-title fs-4"><%= review.rating %> stars</p>
+        <p class="card-title fs-4"><%= review.rating %> star<%= "s" unless review.rating == 1 %></p>
         <p class="mb-1"><%= review.content %></p>
       </div>
     <% end %>
   <% else %>
     <p class="text-center">Be the first person to review <%= @restaurant.name %>!</p>
   <% end %>
-  <div class="d-flex justify-content-center">
-    <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-secondary px-3 text-center" %>
-  </div>
 </div>
